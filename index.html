@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Даниил Полозов - Web Developer & Telegram Bot Creator</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        /* Header */
+        header {
+            background: white;
+            border-radius: 15px;
+            padding: 40px 30px;
+            text-align: center;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+            margin-bottom: 30px;
+        }
+
+        .avatar {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            margin: 0 auto 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 50px;
+            color: white;
+            box-shadow: 0 5px 20px rgba(102, 126, 234, 0.4);
+        }
+
+        h1 {
+            font-size: 2.5em;
+            color: #333;
+            margin-bottom: 10px;
+        }
+
+        .subtitle {
+            font-size: 1.2em;
+            color: #667eea;
+            margin-bottom: 20px;
+            font-weight: 500;
+        }
+
+        .location {
+            color: #666;
+            margin-bottom: 20px;
+            font-size: 1em;
+        }
+
+        .description {
+            color: #555;
+            max-width: 600px;
+            margin: 0 auto 20px;
+            line-height: 1.8;
+        }
+
+        /* Services */
+        .services {
+            background: white;
+            border-radius: 15px;
+            padding: 40px 30px;
+            margin-bottom: 30px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+        }
+
+        .services h2 {
+            text-align: center;
+            font-size: 2em;
+            margin-bottom: 30px;
+            color: #333;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+
+        .service-card {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 30px;
+            border-radius: 10px;
+            color: white;
+            text-align: center;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .service-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(102, 126, 234, 0.3);
+        }
+
+        .service-icon {
+            font-size: 2.5em;
+            margin-bottom: 15px;
+        }
+
+        .service-card h3 {
+            font-size: 1.5em;
+            margin-bottom: 10px;
+        }
+
+        .service-card p {
+            font-size: 0.95em;
+            opacity: 0.9;
+        }
+
+        /* Portfolio */
+        .portfolio {
+            background: white;
+            border-radius: 15px;
+            padding: 40px 30px;
+            margin-bottom: 30px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+        }
+
+        .portfolio h2 {
+            text-align: center;
+            font-size: 2em;
+            margin-bottom: 30px;
+            color: #333;
+        }
+
+        .portfolio-message {
+            text-align: center;
+            color: #999;
+            font-size: 1.1em;
+            padding: 40px;
+            background: #f8f9fa;
+            border-radius: 10px;
+        }
+
+        /* Contact */
+        .contact {
+            background: white;
+            border-radius: 15px;
+            padding: 40px 30px;
+            text-align: center;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+        }
+
+        .contact h2 {
+            font-size: 2em;
+            margin-bottom: 30px;
+            color: #333;
+        }
+
+        .contact-links {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .contact-btn {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 15px 30px;
+            border: none;
+            border-radius: 50px;
+            text-decoration: none;
+            font-size: 1em;
+            cursor: pointer;
+            transition: transform 0.3s, box-shadow 0.3s;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .contact-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(102, 126, 234, 0.4);
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            color: white;
+            margin-top: 40px;
+            padding: 20px;
+            font-size: 0.9em;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 1.8em;
+            }
+
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+
+            header, .services, .portfolio, .contact {
+                padding: 25px 20px;
+            }
+
+            .contact-links {
+                flex-direction: column;
+            }
+
+            .contact-btn {
+                width: 100%;
+                justify-content: center;
+            }
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        header, .services, .portfolio, .contact {
+            animation: fadeInUp 0.6s ease-out;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <header>
+            <div class="avatar">💻</div>
+            <h1>Даниил Полозов</h1>
+            <p class="subtitle">Web Developer & Telegram Bot Creator</p>
+            <p class="location">📍 Украина</p>
+            <p class="description">
+                Я создаю красивые веб-сайты и функциональные Telegram-боты. 
+                Специализируюсь на быстрой разработке, чистом коде и отличной поддержке клиентов.
+            </p>
+        </header>
+
+        <!-- Services -->
+        <section class="services">
+            <h2>Что я делаю</h2>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">🌐</div>
+                    <h3>Веб-сайты</h3>
+                    <p>HTML, CSS, JavaScript. Красивые, адаптивные сайты для любых целей: портфолио, лендинги, магазины.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">🤖</div>
+                    <h3>Telegram-боты</h3>
+                    <p>Автоматизация на Python. Боты для заметок, расписания, уведомлений и многого другого.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Portfolio -->
+        <section class="portfolio">
+            <h2>Портфолио</h2>
+            <div class="portfolio-message">
+                <p>🚀 Портфолио заполняется! Первые проекты будут добавлены очень скоро.</p>
+            </div>
+        </section>
+
+        <!-- Contact -->
+        <section class="contact">
+            <h2>Давайте работать вместе!</h2>
+            <p style="color: #666; margin-bottom: 25px; font-size: 1.05em;">
+                Напишите мне, если у вас есть идея или проект 😊
+            </p>
+            <div class="contact-links">
+                <a href="mailto:danakozak54@gmail.com" class="contact-btn">
+                    📧 Email
+                </a>
+                <a href="https://t.me/fistashkiz" class="contact-btn">
+                    ✈️ Telegram
+                </a>
+                <a href="https://github.com" class="contact-btn">
+                    💾 GitHub
+                </a>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer>
+            <p>&copy; 2026 Даниил Полозов. Все права защищены.</p>
+        </footer>
+    </div>
+</body>
+</html>
